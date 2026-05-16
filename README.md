@@ -82,33 +82,32 @@ Text Output + Text-to-Speech
 sign-language-Using-LSTM/
 ├── README.md
 ├── LICENSE
+├── requirements.txt            # Python dependencies
 │
-├── collectdata.py          # Step 1: Webcam capture — collects training images
-├── data.py                 # Step 2: Feature extraction using MediaPipe → .npy arrays
-├── trainmodel.py           # Step 3: LSTM model training → saves model.h5 / model.json
-├── main.py                 # Step 4: Real-time recognition with locking system
+├── collectdata.py              # Step 1: Webcam capture — collects training images
+├── data.py                     # Step 2: Feature extraction via MediaPipe → .npy arrays
+├── trainmodel.py               # Step 3: LSTM model training → saves model.h5 / model.json
+├── main.py                     # Step 4: Real-time recognition with locking system
 │
-├── App.py                  # Android-facing application entry point
-├── function.py             # Shared helper functions
-├── handdetector.py         # MediaPipe hand landmark detection module
-├── handvolume.py           # Hand gesture volume/coordinate utilities
-├── speech.py               # Text-to-speech output module
+├── App.py                      # Application entry point
+├── function.py                 # Shared helper functions
+├── handdetector.py             # MediaPipe hand landmark detection module
+├── handvolume.py               # Hand gesture coordinate utilities
+├── speech.py                   # Text-to-speech output module
+├── text_to_speech.py           # TTS helper utilities
 │
-├── model.h5                # Trained Keras LSTM model (binary)
-├── model.json              # Model architecture (JSON)
-├── output.mp3              # Sample TTS audio output
+├── model.h5                    # Trained Keras LSTM model (~2.2 MB)
+├── model.json                  # Model architecture (JSON)
 │
-├── Images/                 # Raw training images (30 per gesture class)
-├── MP_Data/                # Extracted MediaPipe landmark arrays (.npy)
-├── Logs/train/             # TensorFlow training logs (TensorBoard)
-├── Sign_Language_Project/  # Android Studio project files
-├── Documentation/          # Academic report and project documentation
+├── Images/                     # Raw training images (30 per gesture class)
+├── MP_Data/                    # Extracted MediaPipe landmark arrays (.npy)
+├── Logs/train/                 # TensorFlow training logs (TensorBoard)
 │
-└── experiments/            # Exploratory scripts used during development
-    ├── mytest.py
-    ├── test2.py
-    ├── test3.py
-    └── testapp.py
+├── Sign_Language_Project/      # Cleaned and updated project files
+├── Documentation/              # Academic report and project documentation
+│
+└── mytest.py / test2.py /      # Experimental scripts used during development
+    test3.py / testapp.py
 ```
 ---
 ## 🚀 Getting Started
