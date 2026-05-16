@@ -76,8 +76,41 @@ Text Output + Text-to-Speech
 | Data Format | NumPy `.npy` |
 
 ---
+## 📁 Project Structure
 
-
+```
+sign-language-Using-LSTM/
+├── README.md
+├── LICENSE
+│
+├── collectdata.py          # Step 1: Webcam capture — collects training images
+├── data.py                 # Step 2: Feature extraction using MediaPipe → .npy arrays
+├── trainmodel.py           # Step 3: LSTM model training → saves model.h5 / model.json
+├── main.py                 # Step 4: Real-time recognition with locking system
+│
+├── App.py                  # Android-facing application entry point
+├── function.py             # Shared helper functions
+├── handdetector.py         # MediaPipe hand landmark detection module
+├── handvolume.py           # Hand gesture volume/coordinate utilities
+├── speech.py               # Text-to-speech output module
+│
+├── model.h5                # Trained Keras LSTM model (binary)
+├── model.json              # Model architecture (JSON)
+├── output.mp3              # Sample TTS audio output
+│
+├── Images/                 # Raw training images (30 per gesture class)
+├── MP_Data/                # Extracted MediaPipe landmark arrays (.npy)
+├── Logs/train/             # TensorFlow training logs (TensorBoard)
+├── Sign_Language_Project/  # Android Studio project files
+├── Documentation/          # Academic report and project documentation
+│
+└── experiments/            # Exploratory scripts used during development
+    ├── mytest.py
+    ├── test2.py
+    ├── test3.py
+    └── testapp.py
+```
+---
 ## 🚀 Getting Started
 
 ### Prerequisites
