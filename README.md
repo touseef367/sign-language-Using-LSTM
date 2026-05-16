@@ -127,27 +127,6 @@ Our system outperforms previous vision-based hand gesture recognition approaches
 
 ---
 
-## 📁 Project Structure
-
-```
-sign-language-lstm/
-├── README.md
-├── requirements.txt
-├── LICENSE
-├── data/               # Dataset instructions
-├── notebooks/          # Exploratory analysis
-├── src/
-│   ├── collect_images.py
-│   ├── create_dataset.py
-│   ├── train_model.py
-│   └── recognize.py
-├── models/             # Saved model files
-├── demo/               # Demo GIF or video
-└── docs/               # Academic report
-```
-
----
-
 ## 🔮 Future Work
 
 - Expand gesture vocabulary beyond 5 signs
