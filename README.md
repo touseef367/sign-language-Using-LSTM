@@ -77,6 +77,7 @@ Text Output + Text-to-Speech
 
 ---
 
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -85,35 +86,55 @@ Text Output + Text-to-Speech
 pip install -r requirements.txt
 ```
 
-### 1. Collect Training Data
+---
+
+### Step 1 — Collect Training Data
 
 ```bash
-python src/collect_images.py
+python collectdata.py
 ```
-This opens your webcam and collects 30 images per gesture into the `data/` folder.
 
-### 2. Create the Dataset
-
-```bash
-python src/create_dataset.py
-```
-Converts raw images into `.npy` feature arrays using MediaPipe hand landmarks.
-
-### 3. Train the LSTM Model
-
-```bash
-python src/train_model.py
-```
-Trains the sequential LSTM model and saves `model.h5` and `model.h` to `models/`.
-
-### 4. Run Real-Time Recognition
-
-```bash
-python src/recognize.py
-```
-Opens the webcam, detects hand gestures, and applies the locking system for high-accuracy recognition.
+Opens your webcam and captures **30 images per gesture** into the `Images/` folder.
+Repeat for each gesture class you want to recognise.
 
 ---
+
+### Step 2 — Extract Features
+
+```bash
+python data.py
+```
+
+Processes raw images through **MediaPipe Hand Landmark Detection** and saves
+extracted landmark arrays as `.npy` files into the `MP_Data/` folder.
+
+---
+
+### Step 3 — Train the LSTM Model
+
+```bash
+python trainmodel.py
+```
+
+Trains the sequential LSTM model on the extracted features.
+Saves the trained model as `model.h5` and `model.json`.
+Training logs are written to `Logs/train/` — view with TensorBoard:
+
+```bash
+tensorboard --logdir Logs/train
+```
+
+---
+
+### Step 4 — Run Real-Time Recognition
+
+```bash
+python main.py
+```
+
+Opens your webcam, detects hand gestures via MediaPipe, and applies the
+**locking system** (confidence > 90%) for high-accuracy recognition.
+Recognised gestures are converted to speech via the TTS module.
 
 ## 📊 Results
 
